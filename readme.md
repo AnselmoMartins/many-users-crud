@@ -38,7 +38,7 @@ $ user: admin@teste.com | password: 123456
 
     docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=yourStrong(!)Passw0rd" -p 1433:1433 --name sql1 -d mcr.microsoft.com/mssql/server:2019-CU3-ubuntu-18.04
 
-  docker start sql1
+    docker start sql1
 ```
 
 ### Host config:
@@ -52,88 +52,90 @@ configure your host configuration in:
 ### Routes
 #### GET
 ```
-$ 1 - /users?name=filter_by_name&email=filter_by_email :
-    return all users, when have some of filters, make a %like query
-    on database;
+[1] - /users?name=filter_by_name&email=filter_by_email
+  return all users, when have some of filters, make a %like query
+  on database;
+```
 
-2 - /users/:id
-    return a specific user (by id on req.params).
+```
+[2] - /users/:id
+  return a specific user (by id on req.params).
 ```
 
 ### Post
 
 ```
- [1] - /sessions:
-    login route:
+[1] - /sessions:
+  login route:
+  json needed to send (example) :
 
-    json needed to send (example) :
+  {
+      "email": "admin@teste.com",
+      "password": "123456"
+  }
+
+  this returns:
     {
-        "email": "admin@teste.com",
-        "password": "123456"
+      "id": 2,
+      "email": "admin@teste.com",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.  eyJpZCI6MiwiaWF0IjoxNTk0Njc1MTQ5LCJleHAiOjE1OTUyNzk5NDl9.RKmJENSH_Llot05
+      z5Yih99oEuJ8bZ8comWQx6DeZGXc"
     }
+```
 
-    this returns:
-     {
-        "id": 2,
-        "email": "admin@teste.com",
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTk0Njc1MTQ5LCJleHAiOjE1OTUyNzk5NDl9.RKmJENSH_Llot05z5Yih99oEuJ8bZ8comWQx6DeZGXc"
-    }
+```
+[2] - /users
+  create users route:
+  json needed to send (example) :
+  * === required.
+  {
+  	"users": [
+  		{
+  			*"email":"testone@hotmail.com",
+  			*"password": "123456",
+  			*"name" : "tester",
+  			"phones": [
+  				{
+  					"phone": "991231508"
+  				}
+  			]
+  			"addresses:" [
+  			    {
+  			        "zipCode": "84015200",
+  			        "street": "teste avenue 200",
+  			        "city": "Ponta Grossa",
+  			        "state": "PR",
+  			        "number": 25,
+  			        "complement": 'a complement',
+  			    },
+  			    {
+  			        "zipCode": "84015201",
+  			        "street": "teste avenue 201",
+  			        "city": "Ponta Grossa",
+  			        "state": "PR",
+  			        "number": 26,
+  			        "complement": 'a complement',
+  			    }
+  			]
+  		},
+  		{
+  			*"email":"testertwo@hotmail.com",
+  			*"password": "123456",
+  			*"name" : "testertwo",
+  			"phones": [
+  				{
+  					"phone": "991219508"
+  				},
+  				{
+  					"phone": "991219507"
+  				},
+  			]
+  		}
+  	]
+  }
 
-  [2] - /users
-    create users route:
-
-    json needed to send (example) :
-    * === required.
-
-    {
-    	"users": [
-    		{
-
-    			*"email":"testone@hotmail.com",
-    			*"password": "123456",
-    			*"name" : "tester",
-    			"phones": [
-    				{
-    					"phone": "991231508"
-    				}
-    			]
-    			"addresses:" [
-    			    {
-    			        "zipCode": "84015200",
-    			        "street": "teste avenue 200",
-    			        "city": "Ponta Grossa",
-    			        "state": "PR",
-    			        "number": 25,
-    			        "complement": 'a complement',
-    			    },
-    			    {
-    			        "zipCode": "84015201",
-    			        "street": "teste avenue 201",
-    			        "city": "Ponta Grossa",
-    			        "state": "PR",
-    			        "number": 26,
-    			        "complement": 'a complement',
-    			    }
-    			]
-    		},
-    		{
-    			*"email":"testertwo@hotmail.com",
-    			*"password": "123456",
-    			*"name" : "testertwo",
-    			"phones": [
-    				{
-    					"phone": "991219508"
-    				},
-    				{
-    					"phone": "991219507"
-    				},
-    			]
-    		}
-    	]
-    }
-
-    a user hasToMany (address and phones), so you can register multiples
-    users with multiples addresses and phones, in just once.
+  a user hasToMany (address and phones), so you can register multiples
+  users with multiples addresses and phones, in just once.
 ```
 
 ### Put
@@ -188,20 +190,17 @@ $ 1 - /users?name=filter_by_name&email=filter_by_email :
     		]
     	}
     }
+```
 
-    When you can see, its possible to put multiple addresses, and multiple phones
-    how its work?
-
-    Inside of an object (addresses, or phone) you can send three arrays(no one is
-    required).
-
-    The arrays are: add:[], edit: [], remove:[],
-     [1] add - array of objects to register on database, (the object is similar to post /users route).
-
-     [2] edit - array of objects similar to add but need object id, to edit the object by id on database
-
-     [3] remove: - array of objects "id", to remove it from database.
-
+```
+When you can see, its possible to put multiple addresses, and multiple phones
+how its work
+Inside of an object (addresses, or phone) you can send three arrays(no one is
+required)
+The arrays are: add:[], edit: [], remove:[],
+ [1] add - array of objects to register on database, (the object is similar to post /users route)
+ [2] edit - array of objects similar to add but need object id, to edit the object by id on databas
+ [3] remove: - array of objects "id", to remove it from database.
 ```
 
 ### Delete
