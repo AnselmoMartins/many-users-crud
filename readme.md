@@ -62,7 +62,7 @@ configure your host configuration in:
 
     [
       {
-        "id": 2,
+        "id": 1,
         "email": "testeuser@hotmail.com",
         "name": "tester",
         "createdAt": "2020-07-13T22:42:54.629Z",
@@ -78,7 +78,7 @@ configure your host configuration in:
                 "complement": "a complement",
                 "createdAt": "2020-07-14T03:27:51.396Z",
                 "updatedAt": "2020-07-14T03:27:51.396Z",
-                "userId": 2
+                "userId": 1
             }
         ],
         "phones": [
@@ -87,7 +87,7 @@ configure your host configuration in:
                 "phone": "991239508",
                 "createdAt": "2020-07-13T22:42:54.725Z",
                 "updatedAt": "2020-07-13T22:42:54.725Z",
-                "userId": 2
+                "userId": 1
             }
         ]
       },
@@ -99,7 +99,7 @@ configure your host configuration in:
         "updatedAt": "2020-07-14T03:27:51.431Z",
         "addresses": [
             {
-                "id": 1,
+                "id": 2,
                 "zipCode": "84015200",
                 "city": "Ponta Grossa",
                 "state": "PR",
@@ -108,16 +108,16 @@ configure your host configuration in:
                 "complement": "other complement",
                 "createdAt": "2020-07-14T03:27:51.396Z",
                 "updatedAt": "2020-07-14T03:27:51.396Z",
-                "userId": 3
+                "userId": 2
             }
         ],
         "phones": [
             {
-                "id": 1,
+                "id": 2,
                 "phone": "991239507",
                 "createdAt": "2020-07-13T22:42:54.725Z",
                 "updatedAt": "2020-07-13T22:42:54.725Z",
-                "userId": 3
+                "userId": 2
             }
         ]
       },
@@ -139,7 +139,7 @@ configure your host configuration in:
     "updatedAt": "2020-07-14T03:27:51.431Z",
      "addresses": [
             {
-                "id": 1,
+                "id": 2,
                 "zipCode": "84015200",
                 "city": "Ponta Grossa",
                 "state": "PR",
@@ -148,16 +148,16 @@ configure your host configuration in:
                 "complement": "other complement",
                 "createdAt": "2020-07-14T03:27:51.396Z",
                 "updatedAt": "2020-07-14T03:27:51.396Z",
-                "userId": 3
+                "userId": 2
             }
         ],
       "phones": [
             {
-                "id": 1,
+                "id": 2,
                 "phone": "991239507",
                 "createdAt": "2020-07-13T22:42:54.725Z",
                 "updatedAt": "2020-07-13T22:42:54.725Z",
-                "userId": 3
+                "userId": 2
             }
       ]
   }
@@ -287,7 +287,7 @@ configure your host configuration in:
     				"state": "PR",
     				"street": "av ernani batista rosas 3131",
     				"number": "3131",
-    				"complement": "aquele lá"
+    				"complement": "a complement"
     			}
     		]
     	}
