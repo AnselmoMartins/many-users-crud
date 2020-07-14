@@ -1,15 +1,15 @@
 # Many-Users-Crud
 
-Many-Users-crud is a api, it was developed for the purpose of study,
+Many-Users-crud is an API, it was developed for the purpose of study,
 done with Node JS, Express and Microsoft SQL SERVER (Sequelize) on Back-End
 
 Features:
-  - jwt authentication,
-  - Create multiples users,
-  - Delete a user
-  - Edit a user,
-  - Show all users,
-  - Show a specific user,
+  - jwt authentication;
+  - Create multiples users;
+  - Delete a user;
+  - Edit a user;
+  - Show all users;
+  - Show a specific user.
 
 ### Installation
 
@@ -45,7 +45,7 @@ $ user: admin@teste.com | password: 123456
 
 ### Host config:
 ```sh
-configure your host configuration in:
+configure your database host in:
     |many-users-crud
         |--- config
         |--- database.js
@@ -249,7 +249,7 @@ configure your host configuration in:
     json needed to send (example) :
     {
     	"name": "testing edit",
-    	"email": "changing user email",
+    	"email": "changinguseremail@hotmail.com",
     	"oldPassword": "123456"
     	"password": "12345678",
     	"confirmPassword: 12345678",
@@ -297,11 +297,11 @@ configure your host configuration in:
 ```
 as you can see, its possible to put multiple addresses, and multiple phones.
 How its work:
-Inside of an object (addresses, or phone) you can send three arrays(no one is
+Inside of an object (addresses, or phones) you can send three arrays(no one is
 required)
 The arrays are: add:[], edit: [], remove:[],
  [1] add - array of objects to register on database, (the object is similar to post /users route)
- [2] edit - array of objects similar to add but need object id, to edit the object by id on databas
+ [2] edit - array of objects similar to add case but object id is required, to edit the object by id on database
  [3] remove: - array of objects "id", to remove it from database.
 ```
 
