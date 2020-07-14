@@ -1,6 +1,7 @@
 # Many-Users-Crud
 
-Many-Users-crud is a api was developed for the purpose of study, made with Node JS, Express and Microsoft SQL SERVER (Sequelize) on Back-End
+Many-Users-crud is a api, it was developed for the purpose of study,
+done with Node JS, Express and Microsoft SQL SERVER (Sequelize) on Back-End
 
 Features:
   - jwt authentication,
@@ -16,7 +17,7 @@ Install the dependencies and devDependencies and start the server.
 
 ```sh
 $ cd many-users-crud
-$ yarn add
+$ yarn
 ```
 
 ### Start Dev server
@@ -24,8 +25,9 @@ $ yarn add
 $ yarn dev
 ```
 
-### Generate first User
+### Generate first User and run migrations
 ```sh
+$ yarn sequelize-cli db:migrate
 $ yarn sequelize-cli db:seed:all
 $ user: admin@teste.com | password: 123456
 ```
@@ -33,7 +35,7 @@ $ user: admin@teste.com | password: 123456
 ### Configuration
 #### Docker
 ```sh
-    if u want to use Docker, install the image by:
+    if you want to use Docker, install the image by:
     docker pull microsoft.com/mssql/server:2019-CU3-ubuntu-18.04
 
     docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=yourStrong(!)Passw0rd" -p 1433:1433 --name sql1 -d mcr.microsoft.com/mssql/server:2019-CU3-ubuntu-18.04
@@ -53,7 +55,7 @@ configure your host configuration in:
 #### GET
 ```
 [1] - /users?name=filter_by_name&email=filter_by_email
-  return all users, when have some of filters, make a %like query
+  return all users, when there are some of the filters, make a %like query
   on database;
 ```
 
@@ -193,8 +195,8 @@ configure your host configuration in:
 ```
 
 ```
-When you can see, its possible to put multiple addresses, and multiple phones
-how its work
+as you can see, its possible to put multiple addresses, and multiple phones.
+How its work:
 Inside of an object (addresses, or phone) you can send three arrays(no one is
 required)
 The arrays are: add:[], edit: [], remove:[],

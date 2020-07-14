@@ -17,7 +17,7 @@ class UserController {
         case name && email == null: {
           users = await User.findAll({
             where: { name: { [Op.like]: `${name}%` } },
-            include: ['addresses'],
+            include: ['addresses', 'phones'],
             attributes,
           });
           break;
@@ -25,7 +25,7 @@ class UserController {
         case email && name == null: {
           users = await User.findAll({
             where: { email: { [Op.like]: `${email}%` } },
-            include: ['addresses'],
+            include: ['addresses', 'phones'],
             attributes,
           });
           break;
@@ -35,14 +35,17 @@ class UserController {
             where: {
               name: { [Op.like]: `${name}%` },
               email: { [Op.like]: `${email}%` },
-              include: ['addresses'],
+              include: ['addresses', 'phones'],
               attributes,
             },
           });
           break;
         }
         default:
-          users = await User.findAll();
+          users = await User.findAll({
+            include: ['addresses', 'phones'],
+            attributes,
+          });
           break;
       }
 
@@ -378,7 +381,7 @@ class UserController {
 
       user.destroy();
 
-      return res.status(200).json({ error: 'User deleted successfully' });
+      return res.status(200).json({ message: 'User deleted successfully' });
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
