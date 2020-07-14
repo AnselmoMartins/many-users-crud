@@ -45,10 +45,17 @@ $ user: admin@teste.com | password: 123456
 
 ### Host config:
 ```sh
-configure your database host in:
+Server port is :3333, defined on:
+ |many-users-crud
+       |--- src
+        |--- server.js
+
+
+Configure your database host in:
     |many-users-crud
+       |--- src
         |--- config
-        |--- database.js
+          |--- database.js
 ````
 
 ### Routes
