@@ -57,11 +57,13 @@ class UserController {
 
   async show(req, res) {
     const { id } = req.params;
+    const attributes = ['id', 'email', 'name', 'createdAt', 'updatedAt'];
 
     try {
       const user = await User.findOne({
         where: { id },
         include: ['addresses', 'phones'],
+        attributes,
       });
 
       if (!user) {

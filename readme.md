@@ -133,34 +133,33 @@ configure your host configuration in:
 
   {
     "id": 2,
-    "name": "testando editadasszooo",
-    "email": "testandoumusuariouasdsadsazasdasdasdxzmasda@hotmail.com",
-    "passwordHash": "$2a$08$fOO9SiTA65TEvUUTkixSXeKB45MoFdreGEI7rOF9Y4/8YnC1TkVnq",
+    "email": "testeusertwo@hotmail.com",
+    "name": "testertwo",
     "createdAt": "2020-07-13T22:42:54.629Z",
     "updatedAt": "2020-07-14T03:27:51.431Z",
-    "addresses": [
-        {
-            "id": 1,
-            "zipCode": "84015200",
-            "city": "Ponta Grossa",
-            "state": "PR",
-            "street": "av ernani batista rosas 3131",
-            "number": 3131,
-            "complement": "aquele lá",
-            "createdAt": "2020-07-14T03:27:51.396Z",
-            "updatedAt": "2020-07-14T03:27:51.396Z",
-            "userId": 2
-        }
-    ],
-    "phones": [
-        {
-            "id": 1,
-            "phone": "991239508",
-            "createdAt": "2020-07-13T22:42:54.725Z",
-            "updatedAt": "2020-07-13T22:42:54.725Z",
-            "userId": 2
-        }
-    ]
+     "addresses": [
+            {
+                "id": 1,
+                "zipCode": "84015200",
+                "city": "Ponta Grossa",
+                "state": "PR",
+                "street": "centro",
+                "number": 250,
+                "complement": "other complement",
+                "createdAt": "2020-07-14T03:27:51.396Z",
+                "updatedAt": "2020-07-14T03:27:51.396Z",
+                "userId": 3
+            }
+        ],
+      "phones": [
+            {
+                "id": 1,
+                "phone": "991239507",
+                "createdAt": "2020-07-13T22:42:54.725Z",
+                "updatedAt": "2020-07-13T22:42:54.725Z",
+                "userId": 3
+            }
+      ]
   }
 
 ```
