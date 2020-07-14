@@ -61,7 +61,7 @@ class UserController {
     try {
       const user = await User.findOne({
         where: { id },
-        include: ['addresses, phones'],
+        include: ['addresses', 'phones'],
       });
 
       if (!user) {

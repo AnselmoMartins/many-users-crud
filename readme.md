@@ -57,11 +57,112 @@ configure your host configuration in:
 [1] - /users?name=filter_by_name&email=filter_by_email
   return all users, when there are some of the filters, make a %like query
   on database;
+
+  response example:
+
+    [
+      {
+        "id": 2,
+        "email": "testeuser@hotmail.com",
+        "name": "tester",
+        "createdAt": "2020-07-13T22:42:54.629Z",
+        "updatedAt": "2020-07-14T03:27:51.431Z",
+        "addresses": [
+            {
+                "id": 1,
+                "zipCode": "84015200",
+                "city": "Ponta Grossa",
+                "state": "PR",
+                "street": "av ernani batista rosas 251",
+                "number": 251,
+                "complement": "a complement",
+                "createdAt": "2020-07-14T03:27:51.396Z",
+                "updatedAt": "2020-07-14T03:27:51.396Z",
+                "userId": 2
+            }
+        ],
+        "phones": [
+            {
+                "id": 1,
+                "phone": "991239508",
+                "createdAt": "2020-07-13T22:42:54.725Z",
+                "updatedAt": "2020-07-13T22:42:54.725Z",
+                "userId": 2
+            }
+        ]
+      },
+      {
+        "id": 2,
+        "email": "testeusertwo@hotmail.com",
+        "name": "testertwo",
+        "createdAt": "2020-07-13T22:42:54.629Z",
+        "updatedAt": "2020-07-14T03:27:51.431Z",
+        "addresses": [
+            {
+                "id": 1,
+                "zipCode": "84015200",
+                "city": "Ponta Grossa",
+                "state": "PR",
+                "street": "centro",
+                "number": 250,
+                "complement": "other complement",
+                "createdAt": "2020-07-14T03:27:51.396Z",
+                "updatedAt": "2020-07-14T03:27:51.396Z",
+                "userId": 3
+            }
+        ],
+        "phones": [
+            {
+                "id": 1,
+                "phone": "991239507",
+                "createdAt": "2020-07-13T22:42:54.725Z",
+                "updatedAt": "2020-07-13T22:42:54.725Z",
+                "userId": 3
+            }
+        ]
+      },
+    ]
+
 ```
 
 ```
 [2] - /users/:id
   return a specific user (by id on req.params).
+
+  response example (id = 2);
+
+  {
+    "id": 2,
+    "name": "testando editadasszooo",
+    "email": "testandoumusuariouasdsadsazasdasdasdxzmasda@hotmail.com",
+    "passwordHash": "$2a$08$fOO9SiTA65TEvUUTkixSXeKB45MoFdreGEI7rOF9Y4/8YnC1TkVnq",
+    "createdAt": "2020-07-13T22:42:54.629Z",
+    "updatedAt": "2020-07-14T03:27:51.431Z",
+    "addresses": [
+        {
+            "id": 1,
+            "zipCode": "84015200",
+            "city": "Ponta Grossa",
+            "state": "PR",
+            "street": "av ernani batista rosas 3131",
+            "number": 3131,
+            "complement": "aquele lá",
+            "createdAt": "2020-07-14T03:27:51.396Z",
+            "updatedAt": "2020-07-14T03:27:51.396Z",
+            "userId": 2
+        }
+    ],
+    "phones": [
+        {
+            "id": 1,
+            "phone": "991239508",
+            "createdAt": "2020-07-13T22:42:54.725Z",
+            "updatedAt": "2020-07-13T22:42:54.725Z",
+            "userId": 2
+        }
+    ]
+  }
+
 ```
 
 ### Post
